@@ -85,7 +85,7 @@ const Menu = () => {
         </li>
         <li className="my-6 md:my-0">
           <Link
-            href="/"
+            href="/register"
             className={`${
               menuOpen
                 ? "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
@@ -100,7 +100,7 @@ const Menu = () => {
 
         <li className="my-6 md:my-0">
           <Link
-            href="/"
+            href="/login"
             className={`${
               menuOpen
                 ? "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
