@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import Menu from "@/components/menu";
 
 const App = () => {
-    return (
-        <div className='w-full h-screen'>
-            <h1 className='text-center py-5'>home</h1>
-        </div>
-    )
-}
+  return (
+    <div className="w-full h-screen bg-blue-950">
+      <Menu />
+    </div>
+  );
+};
 
 export default App;
