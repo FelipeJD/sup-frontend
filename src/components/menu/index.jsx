@@ -2,13 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  FiMenu,
-  FiUser,
-  FiHome,
-  FiLogOut,
-  FiMessageCircle,
-} from "react-icons/fi";
+import { FiMenu, FiLogOut, FiPlus } from "react-icons/fi";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,11 +19,6 @@ const Menu = () => {
         </Link>
 
         <span className="flex space-x-5 items-center text-3xl cursor-pointer mx-2 md:hidden">
-          <li className="list-none">
-            <Link href="/">
-              <FiMessageCircle className="text-white w-6" />
-            </Link>
-          </li>
           <FiMenu onClick={toggleMenu} className="text-white w-8" />
         </span>
       </div>
@@ -41,35 +30,13 @@ const Menu = () => {
       >
         <li className="my-6 md:my-0">
           <Link
-            href="/"
+            href="#"
             className={`flex items-center text-md font-medium text-white hover:text-white/70 duration-100 whitespace-nowrap ${
               menuOpen ? "" : "hidden md:flex"
             } ${menuOpen ? "mx-0" : "mx-4"}`}
           >
-            {menuOpen && <FiHome className="text-xl text-white mr-2" />}
-            Início
-          </Link>
-        </li>
-
-        {!menuOpen && (
-          <li className="my-6 md:my-0 hidden md:flex">
-            <Link
-              href="/"
-              className={`flex items-center text-md font-medium text-white hover:text-white/70 duration-100 whitespace-nowrap mx-4`}
-            >
-              Novo Chat
-            </Link>
-          </li>
-        )}
-        <li className="my-6 md:my-0">
-          <Link
-            href="/"
-            className={`flex items-center text-md font-medium text-white hover:text-white/70 duration-100 whitespace-nowrap ${
-              menuOpen ? "" : "hidden md:flex"
-            } ${menuOpen ? "mx-0" : "mx-4"}`}
-          >
-            {menuOpen && <FiUser className="text-xl text-white mr-2" />}
-            Minhas Informações
+            {menuOpen && <FiPlus className="text-xl text-white mr-2" />}
+            Novo Chat
           </Link>
         </li>
         <li className="my-6 md:my-0">

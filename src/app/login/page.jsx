@@ -14,11 +14,11 @@ const Login = () => {
         </div>
         <div className="flex flex-col">
           <label className="font-medium text-white mb-1">E-mail</label>
-          <Input className="w-full p-3 rounded-md bg-stone-300" />
+          <Input className="w-full p-3 outline-none rounded-md bg-stone-300" />
         </div>
         <div className="flex flex-col">
           <label className="font-medium text-white mb-1">Senha</label>
-          <Input className="w-full p-3 rounded-md bg-stone-300" />
+          <Input className="w-full p-3 outline-none rounded-md bg-stone-300" />
         </div>
         <Button className="flex items-center justify-center w-full bg-blue-900 p-3 text-white font-medium rounded-md shadow-sm">
           Continue
