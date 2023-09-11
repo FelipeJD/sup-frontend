@@ -1,9 +1,15 @@
+"use client";
+
 import React from "react";
+import PrivateRoute from "@/utils/private";
 
 const App = () => {
   return (
-    <div className="w-full h-screen">
-    </div>
+    <PrivateRoute>
+      <div className="w-full h-screen">
+        
+      </div>
+    </PrivateRoute>
   );
 };
 

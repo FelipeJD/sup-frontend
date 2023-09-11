@@ -31,7 +31,7 @@ const Menu = () => {
         } md:flex md:items-center md:bg-transparent md:p-0 py-4 md:w-auto md:opacity-100 transition-all ease-in duration-500`}
       >
         {isAuthenticated ? (
-          <>
+          <div className="w-full max-h-full lg:flex lg:items-center">
             <li className="my-6 md:my-0">
               <Link
                 href="#"
@@ -54,7 +54,7 @@ const Menu = () => {
                 Sair
               </span>
             </li>
-          </>
+          </div>
         ) : (
           <>
             <li className="my-6 md:my-0">
