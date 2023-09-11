@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-screen flex items-center">
+    <div className="w-full h-screen lg:w-1/3 lg:m-auto flex items-center">
       <ToastContainer position="top-right" />
       <form className="w-full max-h-full flex flex-col px-2 space-y-5">
         <div className="w-full">

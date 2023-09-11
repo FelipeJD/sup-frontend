@@ -50,7 +50,7 @@ const Login = () => {
   return (
     <div className="w-full h-screen flex items-center">
       <ToastContainer position="top-right" />
-      <form className="w-full max-h-full flex flex-col px-2 space-y-5">
+      <form className="w-full lg:w-1/3 lg:m-auto max-h-full flex flex-col px-2 space-y-5">
         <div className="w-full">
           <img
             src="/sup-logo.png"
