@@ -29,8 +29,8 @@ const Login = () => {
       formIsValid = false;
     }
 
-    if (!user.password) {
-      newErrors.password = "Senha obrigatória";
+    if (!user.senha) {
+      newErrors.senha = "Senha obrigatória";
       formIsValid = false;
     }
 
@@ -38,8 +38,8 @@ const Login = () => {
       if (newErrors.email) {
         toast.error(newErrors.email);
       }
-      if (newErrors.password) {
-        toast.error(newErrors.password);
+      if (newErrors.senha) {
+        toast.error(newErrors.senha);
       }
       return;
     }
@@ -71,7 +71,7 @@ const Login = () => {
           <label className="font-medium text-white mb-1">Senha</label>
           <Input
             type="password"
-            name="password"
+            name="senha"
             onChange={handleChange}
             className="w-full p-3 outline-none rounded-md bg-stone-300"
           />

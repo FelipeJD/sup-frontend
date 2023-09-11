@@ -22,13 +22,15 @@ const auth = () => {
 
   const register = async (user) => {
     try {
+      localStorage.removeItem("token");
+
       const data = await api
         .post("/api/usuarios/registrar", user)
         .then((response) => {
           return response.data;
         });
 
-      await authUser(data);
+      router.push("/login");
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);

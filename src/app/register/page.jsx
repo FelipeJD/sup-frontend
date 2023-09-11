@@ -40,6 +40,9 @@ const Login = () => {
     }
 
     if (!formIsValid) {
+      if (newErrors.nome) {
+        toast.error(newErrors.nome);
+      }
       if (newErrors.email) {
         toast.error(newErrors.email);
       }

@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Link from "next/link";
+import { Context } from "../../context/UserContext";
 import { FiMenu, FiLogOut, FiPlus } from "react-icons/fi";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isAuthenticated, logout } = useContext(Context);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -28,57 +30,64 @@ const Menu = () => {
           menuOpen ? "block" : "hidden"
         } md:flex md:items-center md:bg-transparent md:p-0 py-4 md:w-auto md:opacity-100 transition-all ease-in duration-500`}
       >
-        <li className="my-6 md:my-0">
-          <Link
-            href="#"
-            className={`flex items-center text-md font-medium text-white hover:text-white/70 duration-100 whitespace-nowrap ${
-              menuOpen ? "" : "hidden md:flex"
-            } ${menuOpen ? "mx-0" : "mx-4"}`}
-          >
-            {menuOpen && <FiPlus className="text-xl text-white mr-2" />}
-            Novo Chat
-          </Link>
-        </li>
-        <li className="my-6 md:my-0">
-          <span
-            className={`flex items-center cursor-pointer font-medium text-white hover:text-white/70 ${
-              menuOpen ? "mx-0" : "mx-4"
-            }`}
-            onClick
-          >
-            {menuOpen && <FiLogOut className="text-xl mr-2 text-white" />}
-            Sair
-          </span>
-        </li>
-        <li className="my-6 md:my-0">
-          <Link
-            href="/register"
-            className={`${
-              menuOpen
-                ? "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
-                : "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
-            } duration-100 px-4 md:px-6 py-2 whitespace-nowrap rounded ${
-              menuOpen ? "mx-0" : "mx-4"
-            }`}
-          >
-            Registro
-          </Link>
-        </li>
+        {isAuthenticated ? (
+          <>
+            <li className="my-6 md:my-0">
+              <Link
+                href="#"
+                className={`flex items-center text-md font-medium text-white hover:text-white/70 duration-100 whitespace-nowrap ${
+                  menuOpen ? "" : "hidden md:flex"
+                } ${menuOpen ? "mx-0" : "mx-4"}`}
+              >
+                {menuOpen && <FiPlus className="text-xl text-white mr-2" />}
+                Novo Chat
+              </Link>
+            </li>
+            <li className="my-6 md:my-0">
+              <span
+                className={`flex items-center cursor-pointer font-medium text-white hover:text-white/70 ${
+                  menuOpen ? "mx-0" : "mx-4"
+                }`}
+                onClick={logout}
+              >
+                {menuOpen && <FiLogOut className="text-xl mr-2 text-white" />}
+                Sair
+              </span>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="my-6 md:my-0">
+              <Link
+                href="/register"
+                className={`${
+                  menuOpen
+                    ? "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
+                    : "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
+                } duration-100 px-4 md:px-6 py-2 whitespace-nowrap rounded ${
+                  menuOpen ? "mx-0" : "mx-4"
+                }`}
+              >
+                Registro
+              </Link>
+            </li>
 
-        <li className="my-6 md:my-0">
-          <Link
-            href="/login"
-            className={`${
-              menuOpen
-                ? "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
-                : "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
-            } duration-100 px-4 md:px-6 py-2 whitespace-nowrap rounded ${
-              menuOpen ? "mx-0" : "mx-4"
-            }`}
-          >
-            Login
-          </Link>
-        </li>
+            <li className="my-6 md:my-0">
+              <Link
+                href="/login"
+                className={`${
+                  menuOpen
+                    ? "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
+                    : "bg-blue-950 text-white hover:text-blue-950 hover:border-white hover:bg-white shadow-md"
+                } duration-100 px-4 md:px-6 py-2 whitespace-nowrap rounded ${
+                  menuOpen ? "mx-0" : "mx-4"
+                }`}
+              >
+                Login
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
